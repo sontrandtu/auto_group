@@ -34,7 +34,7 @@ class _FormInstallmentConsultingState extends State<FormInstallmentConsulting> {
             hinText: "Nhập giá trị tổng cộng (vnđ)",
             titleText: "Giá trị tổng cộng (vnđ)",
             validator: (value) {
-              if (value.isEmpty) {
+              if (value!.isEmpty) {
                 return "không được để trống";
               }
               return null;
@@ -46,7 +46,7 @@ class _FormInstallmentConsultingState extends State<FormInstallmentConsulting> {
             hinText: "SỐ tiền vay (vnđ)",
             titleText: "Nhập số tiền vay (vnđ)",
             validator: (value) {
-              if (value.isEmpty) {
+              if (value!.isEmpty) {
                 return "không được để trống";
               }
               return null;
@@ -58,7 +58,7 @@ class _FormInstallmentConsultingState extends State<FormInstallmentConsulting> {
             hinText: "Nhập thời hạn vay",
             titleText: "Thời hạn vay",
             validator: (value) {
-              if (value.isEmpty) {
+              if (value!.isEmpty) {
                 return "không được để trống";
               }
               return null;
@@ -70,7 +70,7 @@ class _FormInstallmentConsultingState extends State<FormInstallmentConsulting> {
             hinText: "Nhập lãi suất năm đầu (%năm)",
             titleText: "Lãi suất năm đầu (%năm)",
             validator: (value) {
-              if (value.isEmpty) {
+              if (value!.isEmpty) {
                 return "không được để trống";
               }
               return null;
@@ -82,7 +82,7 @@ class _FormInstallmentConsultingState extends State<FormInstallmentConsulting> {
             hinText: "Nhập lãi suất năm thứ 2 (%năm)",
             titleText: "Lãi suất năm thứ 2 (vnđ)",
             validator: (value) {
-              if (value.isEmpty) {
+              if (value!.isEmpty) {
                 return "không được để trống";
               }
               return null;

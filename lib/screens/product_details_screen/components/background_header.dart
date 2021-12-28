@@ -1,7 +1,5 @@
-import 'package:auto_group/screens/color_screen/color_screen.dart';
-import 'package:auto_group/screens/installment_consulting_screen/installment_consulting_screen.dart';
+import 'package:auto_group/page_routes.dart';
 import 'package:auto_group/screens/product_details_screen/components/round_button.dart';
-import 'package:auto_group/screens/video_screen/video_screen.dart';
 import 'package:auto_group/theme/color.dart';
 import 'package:flutter/material.dart';
 
@@ -114,7 +112,7 @@ class BackgroundHeader extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () =>
                         Navigator.pushNamed(
-                            context, InstallmentConsultingScreen.routeName),
+                            context, PageRoutes.installmentConsultingPage),
                     style: ElevatedButton.styleFrom(
                       //padding: EdgeInsets.symmetric(),
                       primary: kSecondaryColor,
@@ -152,13 +150,13 @@ class BackgroundHeader extends StatelessWidget {
                 RoundButton(
                   onTap: () =>
                       Navigator.pushNamed(
-                          context, VideoScreen.routeName, arguments: listLinkVideo),
+                          context, PageRoutes.videoPage, arguments: listLinkVideo),
                   icon: const Icon(Icons.play_circle_outline_outlined),
                   title: "Video",
                 ),
                 RoundButton(
                   onTap: () =>
-                      Navigator.pushNamed(context, ColorScreen.routeName),
+                      Navigator.pushNamed(context, PageRoutes.colorPage),
                   icon: const Icon(Icons.color_lens_outlined),
                   title: "Màu sắc",
                 ),

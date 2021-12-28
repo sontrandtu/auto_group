@@ -22,8 +22,8 @@ class _RegisterTestDriveScreenState extends State<RegisterTestDriveScreen> {
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _dateOfBirthController = TextEditingController();
-  SelectGender _gender = SelectGender.Male;
-  SelectOwnCar _ownCar = SelectOwnCar.Yes;
+  SelectGender _gender = SelectGender.male;
+  SelectOwnCar _ownCar = SelectOwnCar.yes;
 
   @override
   void initState() {
@@ -124,7 +124,7 @@ class _RegisterTestDriveScreenState extends State<RegisterTestDriveScreen> {
                       icon: const Icon(Icons.call_outlined),
                       controller: _phoneNumberController,
                       validator: (value) {
-                        if (value.isEmpty) {
+                        if (value!.isEmpty) {
                           return "Không được bỏ trống";
                         }
                         return null;
@@ -173,7 +173,7 @@ class _RegisterTestDriveScreenState extends State<RegisterTestDriveScreen> {
                                   ),
                                 ),
                                 leading: Radio(
-                                  value: SelectGender.Female,
+                                  value: SelectGender.female,
                                   groupValue: _gender,
                                   onChanged: (SelectGender? value) {
                                     setState(() {
@@ -197,7 +197,7 @@ class _RegisterTestDriveScreenState extends State<RegisterTestDriveScreen> {
                                   ),
                                 ),
                                 leading: Radio(
-                                  value: SelectGender.Male,
+                                  value: SelectGender.male,
                                   groupValue: _gender,
                                   onChanged: (SelectGender? value) {
                                     setState(() {
@@ -237,7 +237,7 @@ class _RegisterTestDriveScreenState extends State<RegisterTestDriveScreen> {
                                     ),
                                   ),
                                   leading: Radio(
-                                    value: SelectOwnCar.Yes,
+                                    value: SelectOwnCar.yes,
                                     groupValue: _ownCar,
                                     onChanged: (SelectOwnCar? value) {
                                       setState(() {
@@ -262,7 +262,7 @@ class _RegisterTestDriveScreenState extends State<RegisterTestDriveScreen> {
                                     ),
                                   ),
                                   leading: Radio(
-                                    value: SelectOwnCar.No,
+                                    value: SelectOwnCar.no,
                                     groupValue: _ownCar,
                                     onChanged: (SelectOwnCar? value) {
                                       setState(() {

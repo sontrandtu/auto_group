@@ -13,7 +13,7 @@ class CustomTextFormField extends StatelessWidget {
 
   final String? hinText;
   final String? titleText;
-  final validator;
+  final FormFieldValidator<String>? validator;
   final TextEditingController? controller;
   final TextInputType? inputType;
 

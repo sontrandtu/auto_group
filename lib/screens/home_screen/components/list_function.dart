@@ -1,5 +1,5 @@
+import 'package:auto_group/page_routes.dart';
 import 'package:auto_group/theme/config.dart';
-import 'package:auto_group/screens/register_test_drive_screen/register_test_driver_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'function_card.dart';
@@ -45,7 +45,7 @@ class ListFunction extends StatelessWidget {
               FunctionCard(
                 title: demoDataGrid[2]["title"],
                 pathImage: demoDataGrid[2]["image"],
-                onTap: () => Navigator.pushNamed(context, RegisterTestDriveScreen.routeName),
+                onTap: () => Navigator.of(context, rootNavigator: true).pushNamed(PageRoutes.registerTestDrivePage),
               ),
               FunctionCard(
                 title: demoDataGrid[3]["title"],

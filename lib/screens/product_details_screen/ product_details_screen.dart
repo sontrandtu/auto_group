@@ -1,6 +1,7 @@
 import 'package:auto_group/components/custom_elevate_button.dart';
 import 'package:auto_group/demo_data.dart';
 import 'package:auto_group/model/product_model.dart';
+import 'package:auto_group/screens/product_details_screen/details_view_model.dart';
 import 'package:flutter/material.dart';
 import 'components/car_information.dart';
 import 'components/commit_of_auto_group.dart';
@@ -9,6 +10,7 @@ import 'components/other_cars.dart';
 import 'components/product_review.dart';
 import 'components/properties_card.dart';
 import 'components/shop_information.dart';
+import 'package:provider/provider.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   static String routeName = "/product_details";
@@ -25,6 +27,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     final Product arguments =ModalRoute.of(context)!.settings.arguments as Product;
+    final viewModel = context.watch<DetailsViewModel>();
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -50,7 +53,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             const CommitOfAutoGroup(),
             ShopInformation(
               onTap: (){},
-              agency: DemoData.agency,
+              agency: viewModel.agency,
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 20),

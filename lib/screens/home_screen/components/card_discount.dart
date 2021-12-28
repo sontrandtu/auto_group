@@ -4,6 +4,8 @@ import 'package:auto_group/screens/product_details_screen/%20product_details_scr
 import 'package:auto_group/theme/color.dart';
 import 'package:flutter/material.dart';
 
+import '../../../page_routes.dart';
+
 class CardDiscount extends StatelessWidget {
   const CardDiscount({
     Key? key,
@@ -17,7 +19,7 @@ class CardDiscount extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: InkWell(
-        onTap: () => Navigator.pushNamed(context, ProductDetailsScreen.routeName,arguments: productDiscount!.product),
+        onTap: () => Navigator.of(context,rootNavigator: true).pushNamed(PageRoutes.productDetailsPage,arguments: productDiscount!.product),
         child: Container(
           width: 250,
           decoration: BoxDecoration(

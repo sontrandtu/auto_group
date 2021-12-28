@@ -1,9 +1,9 @@
 import 'package:auto_group/components/header_properties.dart';
 import 'package:auto_group/demo_data.dart';
-import 'package:auto_group/screens/play_video/play_video_screen.dart';
 import 'package:auto_group/theme/color.dart';
 import 'package:flutter/material.dart';
 
+import '../../page_routes.dart';
 import 'components/video_card.dart';
 
 class VideoScreen extends StatelessWidget {
@@ -54,7 +54,7 @@ class VideoScreen extends StatelessWidget {
                   tapFavorite: () {},
                   tapPlay: () => Navigator.pushNamed(
                     context,
-                    PlayVideoScreen.routeName,
+                    PageRoutes.playVideoPage,
                     arguments: listVideo[index]["linkVideo"],
                   ),
                   videoLength: listVideo[index]["videoLength"],

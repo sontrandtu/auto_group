@@ -25,6 +25,8 @@ abstract class RestClient {
   Future<HttpResponse<List<Agency>>> getAgents();
   @GET('/news')
   Future<HttpResponse<List<CarNews>>> getNews();
+  @GET('/agents/{id}')
+  Future<HttpResponse<Agency>> getAgency(@Path('id') int? id);
 //
 //   // @GET('/time-slot')
 //   // Future<HttpResponse<ListResponse<List<TimeSlotModel>>>> getTimeSlots();

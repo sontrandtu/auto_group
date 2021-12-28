@@ -13,7 +13,7 @@ class RoundedTextFormField extends StatelessWidget {
   final Icon? icon;
   final TextEditingController? controller;
   final TextInputType? inputType;
-  final validator;
+  final FormFieldValidator<String>? validator;
 
   @override
   Widget build(BuildContext context) {

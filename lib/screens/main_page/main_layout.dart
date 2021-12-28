@@ -1,13 +1,14 @@
 import 'package:auto_group/base/app_provider.dart';
 import 'package:auto_group/enum.dart';
+import 'package:auto_group/page_routes.dart';
 import 'package:auto_group/screens/home_screen/home_screen.dart';
+import 'package:auto_group/screens/home_screen/home_view_model.dart';
 import 'package:auto_group/screens/page/account_page.dart';
 import 'package:auto_group/screens/page/booking_page.dart';
 import 'package:auto_group/screens/page/hotline_page.dart';
 import 'package:auto_group/screens/page/post_page.dart';
 import 'package:auto_group/theme/color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 class MainLayout extends StatefulWidget {
@@ -27,7 +28,7 @@ class _MainLayoutState extends State<MainLayout>
   final postNav = GlobalKey<NavigatorState>();
   final hotlineNav = GlobalKey<NavigatorState>();
   final accountNav = GlobalKey<NavigatorState>();
-  List<MenuState> menu = MenuState.values;
+  List<MenuState> menus = MenuState.values;
   MenuState currentMenuState = MenuState.home;
 
   @override
@@ -37,32 +38,43 @@ class _MainLayoutState extends State<MainLayout>
       currentMenu = event;
     });
   }
-  Widget navigationItem(MenuState menuState, String icon) {
+
+  Widget navigationItem(MenuState menuState, IconData icon) {
     return MaterialButton(
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
       minWidth: 40,
       onPressed: () {
         currentMenu = menuState;
+        //print(currentMenuState);
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(
+          Icon(
             icon,
-            color: currentMenuState != menuState ? kSecondaryColor : kPrimaryColor,
-            height: 20,
+            color:
+                currentMenuState != menuState ? kSecondaryColor : Colors.black,
+            size: 30,
           ),
           const SizedBox(height: 2),
-          //Text(menuState.label, style: context.textStyle(color: currentTabType != tabType ? AppColors.secondaryColor : AppColors.textWhite).size11.fontRobotoSlab),
+          Text(
+            menuState.label,
+            style: TextStyle(
+              color: currentMenuState != menuState
+                  ? kSecondaryColor
+                  : Colors.black,
+              fontSize: 11,
+            ),
+          ),
         ],
       ),
     );
   }
 
   set currentMenu(MenuState value) {
-    currentMenu = value;
-    _currentIndex = menu.indexOf(value);
+    currentMenuState = value;
+    _currentIndex = menus.indexOf(value);
     switch (value) {
       case MenuState.home:
         break;
@@ -89,22 +101,22 @@ class _MainLayoutState extends State<MainLayout>
           });
         }
         if (_currentIndex == 1) {
-          homeNav.currentState?.maybePop().then((stackHasItem) {
+          bookingNav.currentState?.maybePop().then((stackHasItem) {
             if (!stackHasItem) {}
           });
         }
         if (_currentIndex == 2) {
-          homeNav.currentState?.maybePop().then((stackHasItem) {
+          postNav.currentState?.maybePop().then((stackHasItem) {
             if (!stackHasItem) {}
           });
         }
         if (_currentIndex == 3) {
-          homeNav.currentState?.maybePop().then((stackHasItem) {
+          hotlineNav.currentState?.maybePop().then((stackHasItem) {
             if (!stackHasItem) {}
           });
         }
         if (_currentIndex == 4) {
-          homeNav.currentState?.maybePop().then((stackHasItem) {
+          accountNav.currentState?.maybePop().then((stackHasItem) {
             if (!stackHasItem) {}
           });
         }
@@ -116,63 +128,86 @@ class _MainLayoutState extends State<MainLayout>
           index: _currentIndex,
           children: <Widget>[
             Navigator(
-              key: homeNav,
-              initialRoute: HomeScreen.routeName,
-              onGenerateRoute: (settings) =>
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
-            ),
+                key: homeNav,
+                initialRoute: PageRoutes.home,
+                onGenerateRoute: (RouteSettings settings) {
+                  WidgetBuilder builder;
+                  switch (settings.name) {
+                    case PageRoutes.home:
+                      builder = (BuildContext _) => ChangeNotifierProvider(
+                            create: (_) => HomeViewModel(
+                              context.read(),
+                              context.read(),
+                              context.read(),
+                              context.read(),
+                            ),
+                            child: const HomeScreen(),
+                          );
+                      break;
+                    default:
+                      throw Exception("Home invalid Route: ${settings.name}");
+                  }
+                  return MaterialPageRoute(
+                    builder: builder,
+                    settings: settings,
+                  );
+                }),
             Navigator(
               key: bookingNav,
-              initialRoute: BookingPage.routeName,
+              initialRoute: PageRoutes.booking,
               onGenerateRoute: (settings) =>
-                  MaterialPageRoute(builder: (context) => BookingPage()),
+                  MaterialPageRoute(builder: (context) => const BookingPage()),
             ),
             Navigator(
               key: postNav,
-              initialRoute: PostPage.routeName,
+              initialRoute: PageRoutes.post,
               onGenerateRoute: (settings) =>
-                  MaterialPageRoute(builder: (context) => PostPage()),
+                  MaterialPageRoute(builder: (context) => const PostPage()),
             ),
             Navigator(
               key: hotlineNav,
-              initialRoute: HotlinePage.routeName,
+              initialRoute: PageRoutes.hotline,
               onGenerateRoute: (settings) =>
-                  MaterialPageRoute(builder: (context) => HotlinePage()),
+                  MaterialPageRoute(builder: (context) => const HotlinePage()),
             ),
             Navigator(
               key: accountNav,
-              initialRoute: AccountPage.routeName,
+              initialRoute: PageRoutes.account,
               onGenerateRoute: (settings) =>
-                  MaterialPageRoute(builder: (context) => AccountPage()),
+                  MaterialPageRoute(builder: (context) => const AccountPage()),
             ),
           ],
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          currentIndex: _currentIndex,
-          backgroundColor: kPrimaryColor,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
-              label: "Trang chủ",
+        bottomNavigationBar: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topRight: Radius.circular(30),
+            topLeft: Radius.circular(30),
+          ),
+          child: BottomAppBar(
+            color: kPrimaryColor,
+            shape: const CircularNotchedRectangle(),
+            notchMargin: 4,
+            clipBehavior: Clip.antiAlias,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 13),
+              child: SizedBox(
+                height: 50,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    navigationItem(MenuState.home, Icons.home_outlined),
+                    navigationItem(
+                        MenuState.booking, Icons.calendar_today_outlined),
+                    navigationItem(MenuState.post, Icons.message_outlined),
+                    navigationItem(
+                        MenuState.hotline, Icons.wifi_calling_3_outlined),
+                    navigationItem(
+                        MenuState.account, Icons.account_circle_outlined),
+                  ],
+                ),
+              ),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today_outlined),
-              label: "Đặt lịch",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.message_outlined),
-              label: "Đăng tin",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.wifi_calling_3_outlined),
-              label: "Hotline",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_outlined),
-              label: "Tài khoản",
-            ),
-          ],
+          ),
         ),
       ),
     );

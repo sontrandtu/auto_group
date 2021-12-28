@@ -17,5 +17,5 @@ extension BottomBar on MenuState{
     }
   }
 }
-enum SelectGender{Male, Female}
-enum SelectOwnCar{Yes, No}
+enum SelectGender{male, female}
+enum SelectOwnCar{yes, no}

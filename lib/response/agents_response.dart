@@ -6,4 +6,7 @@ class AgentsResponse extends Repository {
   Future<ApiResponse<List<Agency>>> getAgents() async {
     return apiClient!.getAgents().wrap();
   }
+  Future<ApiResponse<Agency>> getAgency(int id) async{
+    return apiClient!.getAgency(id).wrap();
+  }
 }
