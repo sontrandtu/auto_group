@@ -5,7 +5,6 @@ import 'components/list_product.dart';
 import 'components/list_select.dart';
 
 class ProductScreen extends StatelessWidget {
-  static String routeName = "/product";
 
   const ProductScreen({Key? key}) : super(key: key);
 

@@ -1,3 +1,4 @@
+import 'package:auto_group/utils/toast_utils.dart';
 import 'package:flutter/material.dart';
 
 import 'card_support.dart';
@@ -28,7 +29,7 @@ class ListSupport extends StatelessWidget {
              Column(
                 children: [
                   CardSupport(
-                    onTap: (){},
+                    onTap: (){showMessage("Đã click");},
                     icon: const Icon(
                       Icons.contact_support_outlined,
                       size: 38,
@@ -36,7 +37,7 @@ class ListSupport extends StatelessWidget {
                     title: "Support 24/24",
                   ),
                   CardSupport(
-                    onTap: (){},
+                    onTap: (){showMessage("Đã click");},
                     icon: const Icon(
                       Icons.gavel_outlined,
                       size: 38,
@@ -48,15 +49,20 @@ class ListSupport extends StatelessWidget {
               Column(
                 children: [
                   CardSupport(
-                    onTap: () {},
+                    onTap: () {
+                      showMessage("Đã click");
+                    },
                     icon: const Icon(
                       Icons.headset_mic_outlined ,
                       size: 38,
                     ),
                     title: "Tư vấn kĩ thuật",
                   ),
-                  const CardSupport(
-                    icon: Icon(
+                  CardSupport(
+                    onTap: () {
+                      showMessage("Đã click");
+                    },
+                    icon: const Icon(
                       Icons.checklist,
                       size: 38,
                     ),
@@ -67,7 +73,7 @@ class ListSupport extends StatelessWidget {
               Column(
                 children: [
                   CardSupport(
-                    onTap: () {},
+                    onTap: () {showMessage("Đã click");},
                     icon: const Icon(
                       Icons.directions_car_outlined,
                       size: 38,
@@ -75,7 +81,7 @@ class ListSupport extends StatelessWidget {
                     title: "Tìm xe 4.0",
                   ),
                   CardSupport(
-                    onTap: (){},
+                    onTap: (){showMessage("Đã click");},
                     icon: const Icon(
                       Icons.auto_fix_high_outlined,
                       size: 38,

@@ -3,7 +3,6 @@ import 'package:auto_group/theme/color.dart';
 import 'package:flutter/material.dart';
 
 class InstallmentConsultingScreen extends StatelessWidget {
-  static String routeName = "/installment_consulting";
 
   const InstallmentConsultingScreen({Key? key}) : super(key: key);
 

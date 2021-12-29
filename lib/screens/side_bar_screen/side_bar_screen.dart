@@ -5,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'components/side_bar_item.dart';
 
 class SideBarScreen extends StatelessWidget {
-  static String routeName = "/side_bar";
 
   const SideBarScreen({Key? key}) : super(key: key);
 

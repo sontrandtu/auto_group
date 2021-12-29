@@ -1,6 +1,5 @@
 import 'package:auto_group/components/custom_elevate_button.dart';
 import 'package:auto_group/demo_data.dart';
-import 'package:auto_group/model/product_model.dart';
 import 'package:auto_group/screens/product_details_screen/details_view_model.dart';
 import 'package:flutter/material.dart';
 import 'components/car_information.dart';
@@ -13,7 +12,6 @@ import 'components/shop_information.dart';
 import 'package:provider/provider.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
-  static String routeName = "/product_details";
 
   const ProductDetailsScreen({Key? key}) : super(key: key);
 
@@ -26,13 +24,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final Product arguments =ModalRoute.of(context)!.settings.arguments as Product;
     final viewModel = context.watch<DetailsViewModel>();
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            HeaderProductDetails(product: arguments),
+            HeaderProductDetails(product: viewModel.product),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -48,7 +45,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               ),
             ),
             CarInformation(
-              demoDataCarInformation: arguments.productInformation,
+              demoDataCarInformation: viewModel.product.productInformation,
             ),
             const CommitOfAutoGroup(),
             ShopInformation(
@@ -58,8 +55,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             Padding(
               padding: const EdgeInsets.only(bottom: 20),
               child: ProductReview(
-                star: DemoData.product.rating,
-                quantityReview: DemoData.product.quantityReview,
+                star: viewModel.product.rating,
+                quantityReview: viewModel.product.quantityReview,
               ),
             ),
             OtherCars(
@@ -78,8 +75,4 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       ),
     );
   }
-}
-class ProductDetailsArguments {
-  late final Product product;
-  ProductDetailsArguments({required this.product});
 }

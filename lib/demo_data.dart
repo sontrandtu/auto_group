@@ -3,7 +3,6 @@ import 'package:auto_group/model/car_news_model.dart';
 import 'package:auto_group/model/category_model.dart';
 import 'package:auto_group/model/discount_model.dart';
 import 'package:auto_group/model/product_model.dart';
-import 'package:flutter/material.dart';
 
 class DemoData {
   static List<Category> demoCategories = [
@@ -35,7 +34,7 @@ class DemoData {
       discountPercent: 10,
       discountPrice: "6 tỷ 999 triệu",
       product: Product(
-        id: 1,
+        id: "1",
         rating: 4.9,
         price: "7 tỷ 999 triệu",
         location: "Hà Nội",
@@ -101,7 +100,7 @@ class DemoData {
       discountPercent: 20,
       discountPrice: "6 tỷ 999 triệu",
       product: Product(
-        id: 2,
+        id: "2",
         rating: 3.3,
         price: "7 tỷ 999 triệu",
         location: "Nghệ An",
@@ -167,7 +166,7 @@ class DemoData {
       discountPercent: 15,
       discountPrice: "6 tỷ 555 triệu",
       product: Product(
-        id: 3,
+        id: "3",
         rating: 4.9,
         price: "7 tỷ 999 triệu",
         location: "Hà Nội",
@@ -233,7 +232,7 @@ class DemoData {
       discountPercent: 8,
       discountPrice: "6 tỷ 999 triệu",
       product: Product(
-        id: 4,
+        id: "4",
         rating: 5,
         price: "7 tỷ 999 triệu",
         location: "Hà Nội",
@@ -299,7 +298,7 @@ class DemoData {
 
   static List<Product> carProducts = [
     Product(
-      id: 1,
+      id: "1",
       productName: "Porsche",
       descriptionProduct: "Siêu phầm PORSCHE PANAMERA model 2020 full option",
       rating: 3,
@@ -330,7 +329,7 @@ class DemoData {
       },
     ),
     Product(
-      id: 2,
+      id: "2",
       productName: "Porsche",
       descriptionProduct: "Siêu phầm PORSCHE PANAMERA model 2020 full option",
       rating: 3,
@@ -361,7 +360,7 @@ class DemoData {
       },
     ),
     Product(
-      id: 3,
+      id: "3",
       productName: "Porsche",
       descriptionProduct: "Siêu phầm PORSCHE PANAMERA model 2020 full option",
       rating: 3,
@@ -392,7 +391,7 @@ class DemoData {
       },
     ),
     Product(
-      id: 4,
+      id: "4",
       productName: "Porsche",
       descriptionProduct: "Siêu phầm PORSCHE PANAMERA model 2020 full option",
       rating: 3,
@@ -423,7 +422,7 @@ class DemoData {
       },
     ),
     Product(
-      id: 5,
+      id: "5",
       productName: "Porsche",
       descriptionProduct: "Siêu phầm PORSCHE PANAMERA model 2020 full option",
       rating: 3,
@@ -499,22 +498,22 @@ class DemoData {
 
   static List<CarNews> demoCarNews = [
     CarNews(
-        id: 1,
+        id: "1",
         urlImage: "assets/images/car1_news.png",
         rating: 4.9,
         title: "Hướng dẫn kỹ thuật lùi xe song song chuẩn xác và an toàn nhất"),
     CarNews(
-        id: 2,
+        id: "2",
         urlImage: "assets/images/car2_news.png",
         rating: 4.9,
         title: "Hướng dẫn kỹ thuật lùi xe song song chuẩn xác và an toàn nhất"),
     CarNews(
-        id: 3,
+        id: "3",
         urlImage: "assets/images/car3_news.png",
         rating: 4.9,
         title: "Hướng dẫn kỹ thuật lùi xe song song chuẩn xác và an toàn nhất"),
     CarNews(
-        id: 4,
+        id: "4",
         urlImage: "assets/images/car1_news.png",
         rating: 4.9,
         title: "Hướng dẫn kỹ thuật lùi xe song song chuẩn xác và an toàn nhất"),
@@ -522,7 +521,7 @@ class DemoData {
 
   static List<Product> demoListProduct = [
     Product(
-      id: 1,
+      id: "1",
       productName: "Porsche",
       descriptionProduct: "Siêu phầm PORSCHE PANAMERA model 2020 full option",
       rating: 4.9,
@@ -553,7 +552,7 @@ class DemoData {
       favorite: true,
     ),
     Product(
-      id: 2,
+      id: "2",
       productName: "Porsche",
       descriptionProduct: "Siêu phầm PORSCHE PANAMERA model 2020 full option",
       rating: 4.9,
@@ -584,7 +583,7 @@ class DemoData {
       favorite: true,
     ),
     Product(
-      id: 3,
+      id: "3",
       productName: "Porsche",
       descriptionProduct: "Siêu phầm PORSCHE PANAMERA model 2020 full option",
       rating: 4.9,
@@ -615,7 +614,7 @@ class DemoData {
       favorite: true,
     ),
     Product(
-      id: 4,
+      id: "4",
       productName: "Porsche",
       descriptionProduct: "Siêu phầm PORSCHE PANAMERA model 2020 full option",
       rating: 4.9,
@@ -646,7 +645,7 @@ class DemoData {
       favorite: true,
     ),
     Product(
-      id: 5,
+      id: "5",
       productName: "Porsche",
       descriptionProduct: "Siêu phầm PORSCHE PANAMERA model 2020 full option",
       rating: 4.9,
@@ -677,11 +676,11 @@ class DemoData {
       favorite: true,
     ),
   ];
-  static List<Color> demoColors = [
-    Color(0xFFF7CC28),
-    Color(0xFF3D70A0),
-    Color(0xFFFD2000),
-    Color(0xFF2F2F30)
+  static List<int> demoColors = [
+    0xFFF7CC28,
+    0xFF3D70A0,
+    0xFFFD2000,
+    0xFF2F2F30
   ];
 
   static List<Map<String, String>> demoVideo = [
@@ -774,7 +773,7 @@ class DemoData {
     urlAvatar: "assets/images/black_car.png",
   );
   static Product product = Product(
-    id: 1,
+    id: "1",
     productName: "Porsche",
     descriptionProduct: "Siêu phầm PORSCHE PANAMERA model 2020 full option",
     rating: 3,

@@ -7,6 +7,7 @@ part of 'agency_model.dart';
 // **************************************************************************
 
 Agency _$AgencyFromJson(Map<String, dynamic> json) => Agency(
+      id: json['id'] as String?,
       nameAgency: json['nameAgency'] as String?,
       urlAvatar: json['urlAvatar'] as String?,
       rating: (json['rating'] as num?)?.toDouble(),
@@ -16,6 +17,7 @@ Agency _$AgencyFromJson(Map<String, dynamic> json) => Agency(
     );
 
 Map<String, dynamic> _$AgencyToJson(Agency instance) => <String, dynamic>{
+      'id': instance.id,
       'nameAgency': instance.nameAgency,
       'urlAvatar': instance.urlAvatar,
       'rating': instance.rating,

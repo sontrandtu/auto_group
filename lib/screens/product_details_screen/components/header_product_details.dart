@@ -18,12 +18,7 @@ class HeaderProductDetails extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         BackgroundHeader(
-          carName: "${product!.productName}",
-          carDescription:
-              "${product!.descriptionProduct}",
-          price: "${product!.price}",
-          images: product!.images,
-          listLinkVideo: product!.listLinkVideo,
+          product: product,
         ),
         ContentImageSlider(
           width: double.infinity,

@@ -1,4 +1,3 @@
-
 import 'package:auto_group/theme/color.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +7,7 @@ class ColorSelect extends StatelessWidget {
     @required this.listColor,
   }) : super(key: key);
 
-  final List<Color>? listColor;
+  final List<String>? listColor;
 
   @override
   Widget build(BuildContext context) {
@@ -47,26 +46,26 @@ class ColorSelect extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
                 focusColor: Colors.black,
                 onTap: () {},
-                child: buildDotColor(listColor![0]),
+                child: buildDotColor(int.parse(listColor![0])),
               ),
             ),
             Positioned(
               left: 80,
               child: InkWell(
                 onTap: () {},
-                child: buildDotColor(listColor![1]),
+                child: buildDotColor(int.parse(listColor![1])),
               ),
             ),
             Positioned(
               left: 40,
               child: InkWell(
                 onTap: () {},
-                child: buildDotColor(listColor![2]),
+                child: buildDotColor(int.parse(listColor![2])),
               ),
             ),
             InkWell(
               onTap: () {},
-              child: buildDotColor(listColor![3]),
+              child: buildDotColor(int.parse(listColor![3])),
             ),
           ],
         ),
@@ -74,12 +73,12 @@ class ColorSelect extends StatelessWidget {
     );
   }
 
-  Container buildDotColor(Color color) {
+  Container buildDotColor(int color) {
     return Container(
       height: 60,
       width: 60,
       decoration: BoxDecoration(
-        color: color,
+        color: Color(color),
         borderRadius: BorderRadius.circular(30),
         border: Border.all(color: Colors.white, width: 5),
       ),

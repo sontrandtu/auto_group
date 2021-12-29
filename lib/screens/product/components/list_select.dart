@@ -1,4 +1,4 @@
-import 'package:auto_group/screens/installment_consulting_screen/installment_consulting_screen.dart';
+import 'package:auto_group/page_routes.dart';
 import 'package:auto_group/theme/color.dart';
 import 'package:flutter/material.dart';
 
@@ -73,7 +73,7 @@ class ListSelect extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 5),
             child: GestureDetector(
               onTap: () => Navigator.pushNamed(
-                  context, InstallmentConsultingScreen.routeName),
+                  context, PageRoutes.installmentConsultingPage),
               child: Container(
                 height: 60,
                 width: 180,

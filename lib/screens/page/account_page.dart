@@ -5,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class AccountPage extends StatelessWidget {
   const AccountPage({Key? key}) : super(key: key);
-  static String routeName = "/main/account";
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,10 @@ class AccountPage extends StatelessWidget {
                 width: 200,
                 height: 100,
                 padding: const EdgeInsets.all(20),
-                color: kPrimaryColor,
+                decoration: BoxDecoration(
+                    color: kPrimaryColor,
+                  borderRadius: BorderRadius.circular(30)
+                ),
                 child: SvgPicture.asset(
                   Res.logo_auto_group,
                   width: 100,

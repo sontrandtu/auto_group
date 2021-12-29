@@ -1,7 +1,6 @@
 import 'package:auto_group/model/category_model.dart';
 import 'package:auto_group/model/product_model.dart';
 import 'package:auto_group/screens/product/components/custom_sliver_appbar.dart';
-import 'package:auto_group/screens/color_screen/color_screen.dart';
 import 'package:auto_group/screens/home_screen/components/car_type.dart';
 import 'package:auto_group/screens/product/components/product_card.dart';
 import 'package:flutter/material.dart';
@@ -56,8 +55,7 @@ class ListProduct extends StatelessWidget {
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, index) => ProductCard(
                 product: products![index],
-                onTap: () =>
-                    Navigator.pushNamed(context, ColorScreen.routeName),
+                onTap: () {},
               ),
               childCount: products!.length,
             ),

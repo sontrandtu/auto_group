@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'car_news_model.g.dart';
 @JsonSerializable()
 class CarNews {
-  final int? id;
+  final String? id;
   final String? urlImage;
   final String? title;
   final double? rating;

@@ -7,7 +7,6 @@ import 'package:intl/intl.dart';
 import 'components/completed_button.dart';
 
 class RegisterTestDriveScreen extends StatefulWidget {
-  static String routeName = "/register_test_drive";
 
   const RegisterTestDriveScreen({Key? key}) : super(key: key);
 
@@ -179,7 +178,6 @@ class _RegisterTestDriveScreenState extends State<RegisterTestDriveScreen> {
                                     setState(() {
                                       _gender = value!;
                                     });
-                                    print(value);
                                   },
                                 ),
                               ),
@@ -203,7 +201,6 @@ class _RegisterTestDriveScreenState extends State<RegisterTestDriveScreen> {
                                     setState(() {
                                       _gender = value!;
                                     });
-                                    print(value);
                                   },
                                 ),
                               ),
@@ -243,7 +240,6 @@ class _RegisterTestDriveScreenState extends State<RegisterTestDriveScreen> {
                                       setState(() {
                                         _ownCar = value!;
                                       });
-                                      print(value);
                                     },
                                   ),
                                 ),
@@ -268,7 +264,6 @@ class _RegisterTestDriveScreenState extends State<RegisterTestDriveScreen> {
                                       setState(() {
                                         _ownCar = value!;
                                       });
-                                      print(value);
                                     },
                                   ),
                                 ),
@@ -288,6 +283,8 @@ class _RegisterTestDriveScreenState extends State<RegisterTestDriveScreen> {
                 dateOfBirthController: _dateOfBirthController,
                 fullNameController: _fullNameController,
                 phoneNumberController: _phoneNumberController,
+                gender: _gender,
+                ownCar: _ownCar,
               ),
             ],
           ),

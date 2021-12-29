@@ -14,8 +14,6 @@ import 'package:provider/provider.dart';
 class MainLayout extends StatefulWidget {
   const MainLayout({Key? key}) : super(key: key);
 
-  static String routeName = "/main";
-
   @override
   _MainLayoutState createState() => _MainLayoutState();
 }

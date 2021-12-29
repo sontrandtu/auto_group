@@ -7,7 +7,7 @@ part of 'car_news_model.dart';
 // **************************************************************************
 
 CarNews _$CarNewsFromJson(Map<String, dynamic> json) => CarNews(
-      id: json['id'] as int?,
+      id: json['id'] as String?,
       urlImage: json['urlImage'] as String?,
       title: json['title'] as String?,
       rating: (json['rating'] as num?)?.toDouble(),

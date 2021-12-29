@@ -10,8 +10,6 @@ import 'components/list_support.dart';
 import 'home_view_model.dart';
 
 class HomeScreen extends StatefulWidget {
-  static String routeName = "main/home";
-
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -53,8 +51,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      // bottomNavigationBar:
-      //     const CustomBottomNavigationBar(selectMenu: MenuState.home),
     );
   }
 }

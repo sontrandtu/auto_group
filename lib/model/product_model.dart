@@ -2,12 +2,13 @@ import 'package:json_annotation/json_annotation.dart';
 part 'product_model.g.dart';
 @JsonSerializable()
 class Product {
-  final int? id;
+  final String? id;
   final String? productName;
   final String? descriptionProduct;
   final String? price;
   final List<String>? images;
   final Map<String, String>? productInformation;
+  final List<String>? listColors;
   final String? location;
   final double? km;
   final double? rating;
@@ -16,6 +17,7 @@ class Product {
   final List<Map<String, String>>? listLinkVideo;
 
   Product({
+    this.listColors,
     this.listLinkVideo,
     this.id,
     this.productName,

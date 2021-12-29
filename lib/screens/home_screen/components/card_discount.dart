@@ -1,6 +1,5 @@
 import 'package:auto_group/components/icon_with_text.dart';
 import 'package:auto_group/model/discount_model.dart';
-import 'package:auto_group/screens/product_details_screen/%20product_details_screen.dart';
 import 'package:auto_group/theme/color.dart';
 import 'package:flutter/material.dart';
 

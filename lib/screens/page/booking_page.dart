@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import '../../res.dart';
 
 class BookingPage extends StatelessWidget {
-  static String routeName = "/main/booking";
   const BookingPage({Key? key}) : super(key: key);
 
   @override
@@ -21,7 +20,10 @@ class BookingPage extends StatelessWidget {
                 width: 200,
                 height: 100,
                 padding: const EdgeInsets.all(20),
-                color: kPrimaryColor,
+                decoration: BoxDecoration(
+                    color: kPrimaryColor,
+                    borderRadius: BorderRadius.circular(30)
+                ),
                 child: SvgPicture.asset(
                   Res.logo_auto_group,
                   width: 100,

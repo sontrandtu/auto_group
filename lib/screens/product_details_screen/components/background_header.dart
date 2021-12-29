@@ -1,3 +1,4 @@
+import 'package:auto_group/model/product_model.dart';
 import 'package:auto_group/page_routes.dart';
 import 'package:auto_group/screens/product_details_screen/components/round_button.dart';
 import 'package:auto_group/theme/color.dart';
@@ -8,18 +9,10 @@ import 'list_images_product.dart';
 class BackgroundHeader extends StatelessWidget {
   const BackgroundHeader({
     Key? key,
-    this.carName,
-    this.carDescription,
-    this.price,
-    this.images,
-    this.listLinkVideo,
+    this.product,
   }) : super(key: key);
 
-  final String? carName;
-  final String? carDescription;
-  final String? price;
-  final List<String>? images;
-  final List<Map<String, String>>? listLinkVideo;
+  final Product? product;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +49,7 @@ class BackgroundHeader extends StatelessWidget {
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text: "$carName\n",
+                            text: "${product!.productName}\n",
                             style: const TextStyle(
                               fontFamily: 'SVN-Arial3',
                               color: kSecondaryColor,
@@ -66,7 +59,7 @@ class BackgroundHeader extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: "$carDescription",
+                            text: "${product!.descriptionProduct}",
                             style: const TextStyle(
                               fontFamily: 'SVN-Arial3',
                               color: kSecondaryColor,
@@ -94,7 +87,7 @@ class BackgroundHeader extends StatelessWidget {
                           ),
                         ),
                         TextSpan(
-                          text: "$price",
+                          text: "${product!.price}",
                           style: const TextStyle(
                             fontFamily: 'SVN-Arial3',
                             color: kSecondaryColor,
@@ -138,7 +131,7 @@ class BackgroundHeader extends StatelessWidget {
             Container(
               padding: const EdgeInsets.only(top: 20),
               height: 100,
-              child: ListImageProduct(images: images),
+              child: ListImageProduct(images: product!.images),
             ),
             Row(
               children: [
@@ -150,13 +143,15 @@ class BackgroundHeader extends StatelessWidget {
                 RoundButton(
                   onTap: () =>
                       Navigator.pushNamed(
-                          context, PageRoutes.videoPage, arguments: listLinkVideo),
+                          context, PageRoutes.videoPage,
+                          arguments: product!.listLinkVideo),
                   icon: const Icon(Icons.play_circle_outline_outlined),
                   title: "Video",
                 ),
                 RoundButton(
                   onTap: () =>
-                      Navigator.pushNamed(context, PageRoutes.colorPage),
+                      Navigator.pushNamed(
+                          context, PageRoutes.colorPage, arguments: product),
                   icon: const Icon(Icons.color_lens_outlined),
                   title: "Màu sắc",
                 ),

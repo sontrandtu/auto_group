@@ -1,16 +1,16 @@
 import 'package:auto_group/components/header_properties.dart';
-import 'package:auto_group/demo_data.dart';
-import 'package:auto_group/screens/video_screen/video_screen.dart';
+import 'package:auto_group/model/product_model.dart';
+import 'package:auto_group/page_routes.dart';
 import 'package:flutter/material.dart';
 import 'components/color_select.dart';
 
 class ColorScreen extends StatelessWidget {
-  static String routeName = "/color";
 
   const ColorScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final Product product = ModalRoute.of(context)!.settings.arguments as Product;
     const List<Icon> listIcons = [
       Icon(Icons.threesixty_outlined),
       Icon(Icons.play_circle_outline_outlined),
@@ -38,7 +38,7 @@ class ColorScreen extends StatelessWidget {
             onTap1: () {
               print("Click");
             },
-            onTap2: () => Navigator.pushNamed(context, VideoScreen.routeName),
+            onTap2: () => Navigator.pushNamed(context, PageRoutes.videoPage, arguments: product.listLinkVideo),
             onTap3: () {
               print("Click");
             },
@@ -47,7 +47,7 @@ class ColorScreen extends StatelessWidget {
             flex: 3,
             child: Image.asset("assets/images/red_car2x.png"),
           ),
-          ColorSelect(listColor: DemoData.demoColors)
+          ColorSelect(listColor: product.listColors)
         ],
       ),
     );

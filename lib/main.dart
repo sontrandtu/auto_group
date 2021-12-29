@@ -12,7 +12,7 @@ import 'package:auto_group/screens/installment_consulting_screen/installment_con
 import 'package:auto_group/screens/main_page/main_layout.dart';
 import 'package:auto_group/screens/play_video/play_video_screen.dart';
 import 'package:auto_group/screens/product/product_screen.dart';
-import 'package:auto_group/screens/product_details_screen/%20product_details_screen.dart';
+import 'package:auto_group/screens/product_details_screen/product_details_screen.dart';
 import 'package:auto_group/screens/product_details_screen/details_view_model.dart';
 import 'package:auto_group/screens/register_test_drive_screen/register_test_driver_screen.dart';
 import 'package:auto_group/screens/video_screen/video_screen.dart';
@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       initialRoute: PageRoutes.main,
       routes: _pageMap(),
@@ -88,7 +88,9 @@ class MyApp extends StatelessWidget {
         final product = ModalRoute.of(context)!.settings.arguments as Product;
         return ChangeNotifierProvider(
           create: (_) => DetailsViewModel(
-              agencyResponse: context.read(), agencyId: product.id!),
+            agencyResponse: context.read(),
+            product: product,
+          ),
           child: const ProductDetailsScreen(),
         );
       },

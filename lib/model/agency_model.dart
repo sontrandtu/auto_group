@@ -4,6 +4,7 @@ part 'agency_model.g.dart';
 
 @JsonSerializable()
 class Agency {
+  final String? id;
   final String? nameAgency;
   final String? urlAvatar;
   final double? rating;
@@ -12,6 +13,7 @@ class Agency {
   final String? operationStatus;
 
   Agency({
+    this.id,
     this.nameAgency,
     this.urlAvatar,
     this.rating,

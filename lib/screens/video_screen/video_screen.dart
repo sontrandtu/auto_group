@@ -7,7 +7,6 @@ import '../../page_routes.dart';
 import 'components/video_card.dart';
 
 class VideoScreen extends StatelessWidget {
-  static String routeName = "/video";
 
   const VideoScreen({Key? key}) : super(key: key);
 
