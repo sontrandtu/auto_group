@@ -5,7 +5,6 @@ import 'package:auto_group/model/category_model.dart';
 import 'package:auto_group/model/product_model.dart';
 import 'package:auto_group/response/agents_response.dart';
 import 'package:auto_group/response/categories_response.dart';
-import 'package:auto_group/response/news_response.dart';
 import 'package:auto_group/response/products_response.dart';
 
 class HomeViewModel extends BaseViewModel {
@@ -16,13 +15,11 @@ class HomeViewModel extends BaseViewModel {
   final CategoryRepository categoryRepository;
   final ProductsResponse productsResponse;
   final AgentsResponse agentsResponse;
-  final NewsResponse newsResponse;
 
   HomeViewModel(
     this.categoryRepository,
     this.productsResponse,
     this.agentsResponse,
-    this.newsResponse,
   ) : super(categoryRepository) {
     clearData();
     getHomeData();
@@ -38,7 +35,7 @@ class HomeViewModel extends BaseViewModel {
     getCategories();
     getProducts();
     getAgents();
-    getNews();
+    //getNews();
   }
 
   getCategories() async {
@@ -67,11 +64,11 @@ class HomeViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  getNews() async {
-    final response = await newsResponse.getNews();
-    if (response.isOk) {
-      news.addAll(response.data ?? []);
-    }
-    notifyListeners();
-  }
+  // getNews() async {
+  //   final response = await newsResponse.getNews();
+  //   if (response.isOk) {
+  //     news.addAll(response.data ?? []);
+  //   }
+  //   notifyListeners();
+  // }
 }

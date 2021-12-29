@@ -1,4 +1,5 @@
 import 'package:auto_group/components/custom_elevate_button.dart';
+import 'package:auto_group/utils/toast_utils.dart';
 import 'package:flutter/material.dart';
 import '../../../enum.dart';
 
@@ -33,6 +34,7 @@ class CompletedButton extends StatelessWidget {
           print("${dateOfBirthController!.text}\n");
           print(gender!.gender);
           print(ownCar!.ownCar);
+          showSuccessMessage("Đã gửi thành công");
         }
       },
       padding: const EdgeInsets.symmetric(horizontal: 140, vertical: 17),

@@ -30,7 +30,7 @@ class CommitOfAutoGroup extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'SVN-Arial3',
               color: Color(0xff000000),
-              fontSize: 13,
+              fontSize: 14,
               fontWeight: FontWeight.w400,
               fontStyle: FontStyle.normal,
             ),
@@ -42,7 +42,7 @@ class CommitOfAutoGroup extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'SVN-Arial3',
               color: Color(0xff000000),
-              fontSize: 13,
+              fontSize: 14,
               fontWeight: FontWeight.w400,
               fontStyle: FontStyle.normal,
             ),

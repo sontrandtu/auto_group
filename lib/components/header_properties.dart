@@ -24,11 +24,11 @@ class HeaderProperties extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
             title!,
-            style: TextStyle(fontSize: 25),
+            style: const TextStyle(fontSize: 25),
           ),
         ),
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(30),
                 bottomLeft: Radius.circular(30),

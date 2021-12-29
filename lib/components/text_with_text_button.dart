@@ -21,13 +21,13 @@ class TextWithTextButton extends StatelessWidget {
           Text(
             titleText!,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           GestureDetector(
             onTap: onTap,
             child: Text(
               textButton!,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
           ),
         ],

@@ -12,7 +12,6 @@ import 'components/shop_information.dart';
 import 'package:provider/provider.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
-
   const ProductDetailsScreen({Key? key}) : super(key: key);
 
   @override
@@ -49,7 +48,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             ),
             const CommitOfAutoGroup(),
             ShopInformation(
-              onTap: (){},
+              onTap: () {},
               agency: viewModel.agency,
             ),
             Padding(
@@ -67,7 +66,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               child: CustomElevateButton(
                 title: "Đặt mua ngay",
                 onPress: () {},
-                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 130),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 130),
               ),
             ),
           ],

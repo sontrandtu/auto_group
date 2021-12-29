@@ -62,13 +62,13 @@ class MyApp extends StatelessWidget {
       PageRoutes.main: (BuildContext context) {
         return ChangeNotifierProvider(
             create: (_) => HomeViewModel(
-                context.read(), context.read(), context.read(), context.read()),
+                context.read(), context.read(), context.read()),
             child: const MainLayout());
       },
       PageRoutes.productPage: (BuildContext context) {
         return ChangeNotifierProvider(
           create: (_) => HomeViewModel(
-              context.read(), context.read(), context.read(), context.read()),
+              context.read(), context.read(), context.read()),
           child: const ProductScreen(),
         );
       },

@@ -137,7 +137,6 @@ class _MainLayoutState extends State<MainLayout>
                               context.read(),
                               context.read(),
                               context.read(),
-                              context.read(),
                             ),
                             child: const HomeScreen(),
                           );

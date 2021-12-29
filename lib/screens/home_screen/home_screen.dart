@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ListLatestCar(carProducts: viewModel.products),
                 ListDistributorCar(agents: viewModel.agents),
                 const ListSupport(),
-                ListCarNews(demoCarNews: viewModel.news),
+                ListCarNews(demoCarNews: DemoData.demoCarNews),
                 const SizedBox(height: 20)
               ],
             ),

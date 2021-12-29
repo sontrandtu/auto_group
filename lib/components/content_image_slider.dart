@@ -37,7 +37,7 @@ class _ContentImageSliderState extends State<ContentImageSlider> {
           options: CarouselOptions(
             height: widget.height,
             autoPlay: true,
-            autoPlayInterval: Duration(seconds: 2),
+            autoPlayInterval: const Duration(seconds: 2),
             viewportFraction: 1,
             onPageChanged: (index, reason) {
               setState(() {
@@ -47,11 +47,11 @@ class _ContentImageSliderState extends State<ContentImageSlider> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 8),
+          padding: const EdgeInsets.symmetric(vertical: 8),
           child: AnimatedSmoothIndicator(
             activeIndex: activeIndex,
             count: widget.pathImages!.length,
-            effect: JumpingDotEffect(
+            effect: const JumpingDotEffect(
               dotWidth: 8,
               dotHeight: 8,
               dotColor: Colors.grey,
@@ -63,7 +63,7 @@ class _ContentImageSliderState extends State<ContentImageSlider> {
     );
   }
 
-  buildImage(pathImage, int index) => Container(
+  buildImage(pathImage, int index) => SizedBox(
         width: widget.width,
         child: Image.asset(
           pathImage,
