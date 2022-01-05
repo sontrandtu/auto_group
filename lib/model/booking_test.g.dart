@@ -7,11 +7,8 @@ part of 'booking_test.dart';
 // **************************************************************************
 
 BookingTest _$BookingTestFromJson(Map<String, dynamic> json) => BookingTest(
-      id: json['id'] as String?,
       fullName: json['fullName'] as String?,
-      dateOfBirth: json['dateOfBirth'] == null
-          ? null
-          : DateTime.parse(json['dateOfBirth'] as String),
+      dateOfBirth: json['dateOfBirth'] as String?,
       phoneNumber: json['phoneNumber'] as String?,
       email: json['email'] as String?,
       gender: json['gender'] as String?,
@@ -20,9 +17,8 @@ BookingTest _$BookingTestFromJson(Map<String, dynamic> json) => BookingTest(
 
 Map<String, dynamic> _$BookingTestToJson(BookingTest instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'fullName': instance.fullName,
-      'dateOfBirth': instance.dateOfBirth?.toIso8601String(),
+      'dateOfBirth': instance.dateOfBirth,
       'phoneNumber': instance.phoneNumber,
       'email': instance.email,
       'gender': instance.gender,

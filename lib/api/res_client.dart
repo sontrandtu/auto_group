@@ -1,4 +1,8 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:auto_group/model/agency_model.dart';
+import 'package:auto_group/model/booking_test.dart';
 import 'package:auto_group/model/car_news_model.dart';
 import 'package:auto_group/model/category_model.dart';
 import 'package:auto_group/model/product_model.dart';
@@ -27,6 +31,16 @@ abstract class RestClient {
   Future<HttpResponse<List<CarNews>>> getNews();
   @GET('/agents/{id}')
   Future<HttpResponse<Agency>> getAgency(@Path('id') String? id);
+  @MultiPart()
+  @POST('/booking_test')
+  Future<HttpResponse<BookingTest>> postBookingTest(
+      @Part(name: "fullName") String fullName,
+      @Part(name: "dateOfBirth") String dateOfBirth,
+      @Part(name: "phoneNumber") String phoneNumber,
+      @Part(name: "email") String email,
+      @Part(name: "gender") String gender,
+      @Part(name: "ownCar") bool ownCar,
+      );
 //
 //   // @GET('/time-slot')
 //   // Future<HttpResponse<ListResponse<List<TimeSlotModel>>>> getTimeSlots();

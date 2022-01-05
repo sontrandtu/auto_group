@@ -2,6 +2,7 @@ import 'package:auto_group/base/app_provider.dart';
 import 'package:auto_group/model/product_model.dart';
 import 'package:auto_group/page_routes.dart';
 import 'package:auto_group/response/agents_response.dart';
+import 'package:auto_group/response/booking_test_response.dart';
 import 'package:auto_group/response/categories_response.dart';
 import 'package:auto_group/response/news_response.dart';
 import 'package:auto_group/response/products_response.dart';
@@ -15,6 +16,7 @@ import 'package:auto_group/screens/product/product_screen.dart';
 import 'package:auto_group/screens/product_details_screen/product_details_screen.dart';
 import 'package:auto_group/screens/product_details_screen/details_view_model.dart';
 import 'package:auto_group/screens/register_test_drive_screen/register_test_driver_screen.dart';
+import 'package:auto_group/screens/register_test_drive_screen/register_test_driver_view_model.dart';
 import 'package:auto_group/screens/video_screen/video_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -28,6 +30,7 @@ void main() async {
         Provider(create: (_) => ProductsResponse()),
         Provider(create: (_) => AgentsResponse()),
         Provider(create: (_) => NewsResponse()),
+        Provider(create: (_) => BookingTestResponse()),
         ChangeNotifierProvider(create: (_) => AppProvider())
       ],
       child: const MyApp(),
@@ -79,7 +82,10 @@ class MyApp extends StatelessWidget {
         return const VideoScreen();
       },
       PageRoutes.registerTestDrivePage: (BuildContext context) {
-        return const RegisterTestDriveScreen();
+        return ChangeNotifierProvider(
+          create: (_) => RegisterTestDriverViewModel(context.watch()),
+          child: const RegisterTestDriveScreen(),
+        );
       },
       PageRoutes.installmentConsultingPage: (BuildContext context) {
         return const InstallmentConsultingScreen();

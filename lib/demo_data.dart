@@ -517,6 +517,12 @@ class DemoData {
         urlImage: "assets/images/car1_news.png",
         rating: 4.9,
         title: "Hướng dẫn kỹ thuật lùi xe song song chuẩn xác và an toàn nhất"),
+    CarNews(
+      id: "5",
+      urlImage: "assets/images/car1_news.png",
+      rating: 4.9,
+      title: "Hướng dẫn kĩ thuật đổ đèo an toàn mà chuẩn xác nhất"
+    )
   ];
 
   static List<Product> demoListProduct = [

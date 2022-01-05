@@ -4,16 +4,14 @@ part 'booking_test.g.dart';
 
 @JsonSerializable()
 class BookingTest {
-  final String? id;
   final String? fullName;
-  final DateTime? dateOfBirth;
+  final String? dateOfBirth;
   final String? phoneNumber;
   final String? email;
   final String? gender;
   final bool? ownCar;
 
   BookingTest({
-    this.id,
     this.fullName,
     this.dateOfBirth,
     this.phoneNumber,

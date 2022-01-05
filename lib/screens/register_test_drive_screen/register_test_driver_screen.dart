@@ -1,13 +1,15 @@
+import 'package:auto_group/components/custom_elevate_button.dart';
+import 'package:auto_group/screens/register_test_drive_screen/register_test_driver_view_model.dart';
 import 'package:auto_group/theme/color.dart';
 import 'package:auto_group/enum.dart';
 import 'package:auto_group/components/icon_with_text.dart';
 import 'package:auto_group/components/rounded_text_form_field.dart';
+import 'package:auto_group/utils/toast_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'components/completed_button.dart';
+import 'package:provider/provider.dart';
 
 class RegisterTestDriveScreen extends StatefulWidget {
-
   const RegisterTestDriveScreen({Key? key}) : super(key: key);
 
   @override
@@ -21,7 +23,7 @@ class _RegisterTestDriveScreenState extends State<RegisterTestDriveScreen> {
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _dateOfBirthController = TextEditingController();
-  SelectGender _gender = SelectGender.male;
+  SelectGender _gender = SelectGender.female;
   SelectOwnCar _ownCar = SelectOwnCar.yes;
 
   @override
@@ -35,6 +37,7 @@ class _RegisterTestDriveScreenState extends State<RegisterTestDriveScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = context.watch<RegisterTestDriverViewModel>();
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -277,14 +280,31 @@ class _RegisterTestDriveScreenState extends State<RegisterTestDriveScreen> {
                   ],
                 ),
               ),
-              CompletedButton(
-                emailController: _emailController,
-                formKey: _formKey,
-                dateOfBirthController: _dateOfBirthController,
-                fullNameController: _fullNameController,
-                phoneNumberController: _phoneNumberController,
-                gender: _gender,
-                ownCar: _ownCar,
+              CustomElevateButton(
+                title: "Hoàn tất",
+                onPress: () async {
+                  if (_formKey.currentState!.validate()) {
+                    print("${_fullNameController.text}\n");
+                    print("${_phoneNumberController.text}\n");
+                    print("${_emailController.text}\n");
+                    print("${_dateOfBirthController.text}\n");
+                    print(_gender.gender);
+                    print(_ownCar.ownCar);
+                    viewModel.fullName = _fullNameController.text;
+                    viewModel.dateOfBirth = _dateOfBirthController.text;
+                    viewModel.phoneNumber = _phoneNumberController.text;
+                    viewModel.email = _emailController.text;
+                    viewModel.gender = _gender.gender;
+                    viewModel.ownCar = _ownCar.ownCar;
+                    viewModel.bookingTestPostData(errorCallback: (message) {
+                      showMessage(message);
+                    }, successCallback: (value) {
+                      showMessage(value);
+                    });
+                  }
+                },
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 140, vertical: 17),
               ),
             ],
           ),

@@ -1,5 +1,4 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-
 part of 'res_client.dart';
 
 // **************************************************************************
@@ -105,6 +104,30 @@ class _RestClient implements RestClient {
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = Agency.fromJson(_result.data!);
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
+  }
+
+  @override
+  Future<HttpResponse<BookingTest>> postBookingTest(
+      fullName, dateOfBirth, phoneNumber, email, gender, ownCar) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    _data.fields.add(MapEntry('fullName', fullName));
+    _data.fields.add(MapEntry('dateOfBirth', dateOfBirth));
+    _data.fields.add(MapEntry('phoneNumber', phoneNumber));
+    _data.fields.add(MapEntry('email', email));
+    _data.fields.add(MapEntry('gender', gender));
+    _data.fields.add(MapEntry('ownCar', ownCar.toString()));
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<HttpResponse<BookingTest>>(
+            Options(method: 'POST', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/booking_test',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = BookingTest.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }

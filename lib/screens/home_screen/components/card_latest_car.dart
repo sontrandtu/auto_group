@@ -55,7 +55,7 @@ class CardLatestCar extends StatelessWidget {
                           color: Colors.red, fontWeight: FontWeight.bold),
                     ),
                     IconWithText(
-                      text: "${product!.km}",
+                      text: "${product!.km!.toInt()} km",
                       icon: const Icon(Icons.speed_outlined),
                     ),
                     IconWithText(
